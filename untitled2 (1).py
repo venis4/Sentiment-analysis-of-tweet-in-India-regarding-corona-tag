@@ -168,7 +168,7 @@ model_d2v=gensim.models.Doc2Vec(dm=1,dm_mean=1,size=200,window=5,negative=7,min_
 model_d2v.build_vocab([i for i in tqdm(labeled_tweets)])
 model_d2v.train(labeled_tweets,total_examples=len(combine['c_tweet']), epochs=15)
 
-docvec_arrays=np.zeros((len(tokenized_tweet),200))
+docvec_arrays=np.zeros((len(token_tweet),200))
 for i in range(len(combine)):
   docvec_arrays[i,:]=model_d2v.docvecs[i].reshape((1,200))
 docvec_df=pd.DataFrame(docvec_arrays)
