@@ -180,7 +180,7 @@ from sklearn.metrics import f1_score
 
 train_bow=bow[:31962,:]
 test_bow=bow[31962:,:]
-yvalid=train_test_split(train_bow,train['lhashtags'],random_state=42,test_size=0.3)
+xtrain_bow,xvalid_bow,ytrain,yvalid=train_test_split(train_bow,train['hashtags'],random_state=42,test_size=0.3)
 lreg=LogisticRegression()
 lreg.fit(xtrain_bow,ytrain)
 prediction=lreg.predict_proba(xvalid_bow)
