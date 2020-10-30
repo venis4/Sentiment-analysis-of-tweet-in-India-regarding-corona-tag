@@ -123,13 +123,13 @@ tfidf_vectorizer=TfidVectorizer(max_df=0.90,min_df=2,max_features=1000,stop_word
 tfid=tfidf_vectorizer.fit_transform(combine['c_tweet'])
 bow.shape
 
-'''
+
 token_tweet=combine['c_tweet'].apply(lambda x: x.split())
 model_w2v=gensim.models.Word2Vec(
     token_tweet,size=200,window=5,min_count=2,sg=1,hs=0,negative=10,workers=2,seed=34
 )
 model_w2v.train(token_tweet,total_examples=len(combine['c_tweet']),epochs=20)
-'''
+
 
 def word_vector(tokens,size):
   vec=np.zeros(size).reshape((1,size))
